@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "ef821324b3b4f2ed29b3eb61b57543ad"
+name = "product-visualiser"
+handle = "product-visualiser"
+application_url = "https://harm-genetic-sheer-extract.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://harm-genetic-sheer-extract.trycloudflare.com/auth/callback",
+  "https://harm-genetic-sheer-extract.trycloudflare.com/auth/shopify/callback",
+  "https://harm-genetic-sheer-extract.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "quickstart-799caaee.myshopify.com"
+automatically_update_urls_on_dev = true
